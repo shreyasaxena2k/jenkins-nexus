@@ -6,9 +6,9 @@ pipeline {
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "15.207.14.144:8081"
+        NEXUS_URL = "10.73.15.109"
         NEXUS_REPOSITORY = "java-app"
-        NEXUS_CREDENTIAL_ID = "NEXUS-CRED"
+        NEXUS_CREDENTIAL_ID = "NEXUS_CRED"
     }
     stages {
         stage("Clone code from GitHub") {
@@ -38,11 +38,11 @@ pipeline {
                         nexusArtifactUploader(
                             nexusVersion: 'nexus3',
                             protocol: 'http',
-                            nexusUrl: '15.207.14.144:8081',
+                            nexusUrl: '10.73.15.109',
                             groupId: 'pom.com.mycompany.app',
                             version: 'pom.1.0-SNAPSHOT',
                             repository: 'maven-central-repo',
-                            credentialsId: 'NEXUS-CRED',
+                            credentialsId: 'NEXUS_CRED',
                             artifacts: [
                                 [artifactId: 'pom.my-app',
                                 classifier: '',
